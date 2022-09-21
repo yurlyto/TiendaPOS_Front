@@ -6,7 +6,10 @@ import { LayoutModule } from './layout/layout.module';
 import { VentasModule } from './ventas/ventas.module';
 import {ButtonModule} from 'primeng/button';
 import {ToolbarModule} from 'primeng/toolbar';
-
+import {HttpClientModule} from '@angular/common/http'
+import {ToastModule} from 'primeng/toast';
+import {TableModule} from 'primeng/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,17 @@ import {ToolbarModule} from 'primeng/toolbar';
     VentasModule,
     AppRoutingModule,
     ButtonModule,
-    ToolbarModule
+    ToolbarModule,
+    HttpClientModule,
+    ToastModule,
+    TableModule,
+    BrowserAnimationsModule
   ],
   exports:[
     ButtonModule,
-    ToolbarModule
+    ToolbarModule,
+    ToastModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

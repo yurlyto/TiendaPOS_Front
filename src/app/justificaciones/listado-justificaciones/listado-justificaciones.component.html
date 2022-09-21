@@ -1,0 +1,21 @@
+<p>listado-justificaciones works! {{justificaciones|json}}</p>
+
+<p-table [value]="justificaciones" [scrollable]="true" scrollHeight="55vh" >
+  <ng-template pTemplate="header">
+      <tr>
+          <th>DESCRIPCIÓN</th>
+          <th>FACTOR</th>
+          <th style="text-align: right;">OPCIONES</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-justificacion>
+      <tr>
+          <td>{{justificacion.descripcion}}</td>
+          <td>{{justificacion.factor}}</td>
+          <td style="text-align: right;">
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(justificacion)"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="delete(justificacion)"></button>
+        </td>
+      </tr>
+  </ng-template>
+</p-table>

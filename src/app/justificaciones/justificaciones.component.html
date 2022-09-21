@@ -1,3 +1,4 @@
+<p-toast position="top-center"></p-toast>
 <p-toolbar>
   <div class="p-toolbar-group-left">
     <button
@@ -7,19 +8,28 @@
       icon="pi pi-plus"
       label="Nuevo"
       class="p-button-rounded p-button-success"
+      (click)="new()"
     ></button>
   </div>
 </p-toolbar>
-
+{{ justificacion | json }}
 <div class="grid mt-2">
   <div class="col-3">
     <div class="card card-full-h">
-      <app-edit-justificaciones-component></app-edit-justificaciones-component>
+      <app-edit-justificaciones
+        [justificacion]="justificacion"
+        (crearItem)="crear($event)"
+        (guardarItem)="guardar($event)"
+      ></app-edit-justificaciones>
     </div>
   </div>
   <div class="col-9">
     <div class="card card-full-h">
-      <app-listado-justificaciones-component></app-listado-justificaciones-component>
+      <app-listado-justificaciones
+        [justificaciones]="justificaciones"
+        (editItem)="edit($event)"
+        (deleteItem)="eliminar($event)"
+      ></app-listado-justificaciones>
     </div>
   </div>
 </div>

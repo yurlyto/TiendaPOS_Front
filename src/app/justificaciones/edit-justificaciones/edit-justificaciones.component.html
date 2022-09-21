@@ -1,0 +1,55 @@
+<p-toast position="top-center"></p-toast>
+<p>edit-justificaciones works! {{ justificacion | json }}</p>
+<h3 *ngIf="justificacion?.id">Editar Justificacion {{justificacion?.descripcion}}</h3>
+<h3 *ngIf="!justificacion?.id">Crear Justificacion</h3>
+<form (ngSubmit)="crear()" autocomplete="off" [formGroup]="form">
+  <div class="grid">
+    <label for="descripcion" class="col-12"><h5>Descripcion:</h5></label>
+    <input
+      type="text"
+      id="descripcion"
+      class="col-12"
+      pInputText
+      placeholder="Descripción breve de la justificacion"
+      formControlName="descripcion"
+    />
+    <label for="descripcion" class="col-12"><h5>Factor ( 1 Cargar o -1 descargar inventario):</h5></label>
+    <input
+      type="number"
+      id="factor"
+      class="col-12"
+      pInputText
+      placeholder="Factor para 1 sumar o -1 restar el inventario"
+      formControlName="factor"
+    />
+
+    <div class="col-4 col-offset-8">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-plus"
+        label="Guardar"
+        class="p-button-rounded w-full"
+        (click)="guardar()"
+        *ngIf="justificacion?.id"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-save"
+        label="Crear"
+        class="p-button-rounded p-button-success"
+        style="min-width: 100%"
+        (click)="crear()"
+        *ngIf="!justificacion?.id"
+      ></button>
+    </div>
+  </div>
+</form>
+<h5>Valid</h5>
+<p>{{form.valid}}</p>
+<h5>Valores</h5>
+<p>{{form.value|json}}</p>
+
