@@ -1,0 +1,19 @@
+<p>listado-categorias works! {{categorias|json}}</p>
+
+<p-table [value]="categorias" [scrollable]="true" scrollHeight="55vh" >
+  <ng-template pTemplate="header">
+      <tr>
+          <th>DESCRIPCIÓN</th>
+          <th style="text-align: right;">OPCIONES</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-categoria>
+      <tr>
+          <td>{{categoria.descripcion}}</td>
+          <td style="text-align: right;">
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(categoria)"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="delete(categoria)"></button>
+        </td>
+      </tr>
+  </ng-template>
+</p-table>

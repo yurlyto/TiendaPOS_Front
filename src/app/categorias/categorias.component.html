@@ -1,0 +1,36 @@
+<p-toast position="top-center"></p-toast>
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-plus"
+      label="Nuevo"
+      class="p-button-rounded p-button-success"
+      (click)="new()"
+    ></button>
+  </div>
+</p-toolbar>
+{{ categoria | json }}
+<div class="grid mt-2">
+  <div class="col-3">
+    <div class="card card-full-h">
+      <app-edit-categorias
+        [categoria]="categoria"
+        (crearItem)="crear($event)"
+        (guardarItem)="guardar($event)"
+      ></app-edit-categorias>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="card card-full-h">
+      <app-listado-categorias
+        [categorias]="categorias"
+        (editItem)="edit($event)"
+        (deleteItem)="eliminar($event)"
+      ></app-listado-categorias>
+    </div>
+  </div>
+</div>
+

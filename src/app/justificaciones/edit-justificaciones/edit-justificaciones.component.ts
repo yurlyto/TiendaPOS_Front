@@ -39,7 +39,7 @@ export class EditJustificacionesComponent implements OnInit {
     }
     let justificacion=this.form.value;
     justificacion.id=this.justificacion?.id
-    this.guardarItem.emit(this.form.value);
+    this.guardarItem.emit(justificacion);
   }
   crear() {
     if (!this.form.valid) {

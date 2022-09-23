@@ -15,7 +15,7 @@ export class JustificacionesComponent implements OnInit {
   constructor(
     private justificacionesService:JustificacionesService,
     private messageService:MessageService
-    ) { }
+  ) { }
 
 
   ngOnInit(): void {

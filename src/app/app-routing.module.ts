@@ -8,6 +8,7 @@ import { LayoutComponent } from './layout/layout.component';
             { path: '', redirectTo: '/ventas', pathMatch: 'full' },
             { path: 'ventas', component: LayoutComponent, loadChildren: () => import('./ventas/ventas.module').then(m => m.VentasModule)  },
             { path: 'justificaciones',component: LayoutComponent, loadChildren: () => import('./justificaciones/justificaciones.module').then(m => m.JustificacionesModule) },
+            { path: 'categorias',component: LayoutComponent, loadChildren: () => import('./categorias/categorias.module').then(m => m.CategoriasModule) },
         ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule]

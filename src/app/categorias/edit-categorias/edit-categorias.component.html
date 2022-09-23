@@ -1,0 +1,46 @@
+<p-toast position="top-center"></p-toast>
+<p>edit-categoriaes works! {{ categoria | json }}</p>
+<h3 *ngIf="categoria?.id">Editar categoria {{categoria?.descripcion}}</h3>
+<h3 *ngIf="!categoria?.id">Crear categoria</h3>
+<form (ngSubmit)="crear()" autocomplete="off" [formGroup]="form">
+  <div class="grid">
+    <label for="descripcion" class="col-12"><h5>Descripcion:</h5></label>
+    <input
+      type="text"
+      id="descripcion"
+      class="col-12"
+      pInputText
+      placeholder="Descripción breve de la categoria"
+      formControlName="descripcion"
+    />
+
+    <div class="col-4 col-offset-8">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-plus"
+        label="Guardar"
+        class="p-button-rounded w-full"
+        (click)="guardar()"
+        *ngIf="categoria?.id"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-save"
+        label="Crear"
+        class="p-button-rounded p-button-success"
+        style="min-width: 100%"
+        (click)="crear()"
+        *ngIf="!categoria?.id"
+      ></button>
+    </div>
+  </div>
+</form>
+<h5>Valid</h5>
+<p>{{form.valid}}</p>
+<h5>Valores</h5>
+<p>{{form.value|json}}</p>
+
