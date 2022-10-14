@@ -1,0 +1,23 @@
+<!-- <p-toast position="top-center"></p-toast> -->
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-plus"
+      label="Nuevo"
+      class="p-button-rounded p-button-success"
+      (click)="new()"
+    ></button>
+  </div>
+</p-toolbar>
+{{ formapagos | json }}
+<!-- {{ justificacion | json }} -->
+
+<div class="col-9">
+  <div class="card card-full-h">
+    <app-listado-formapagos [formapagos]="formapagos"></app-listado-formapagos>
+  </div>
+</div>
+

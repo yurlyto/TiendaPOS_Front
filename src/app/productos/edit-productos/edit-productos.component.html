@@ -1,0 +1,104 @@
+<p-toast position="top-center"></p-toast>
+<!-- <p>edit-productos works! {{ producto | json }}</p> -->
+<h3 *ngIf="producto?.id">Editar Producto {{producto?.descripcion}}</h3>
+<h3 *ngIf="!producto?.id">Crear Producto</h3>
+
+
+
+  <form (ngSubmit)="crear()" autocomplete="off" [formGroup]="form">
+
+    <div class="grid ">
+      <div class="col-12">
+        <p-scrollPanel [style]="{width: '100%', height: '200px'}">
+      <label for="descripcion" class="col-12"><h5>Descripcion:</h5></label>
+      <input
+        type="text"
+        id="descripcion"
+        class="col-12"
+        pInputText
+        placeholder="Descripción breve de la producto"
+        formControlName="descripcion"
+      />
+      <label for="codigoBarras" class="col-12"><h5>Código de Barras:</h5></label>
+      <input
+        type="text"
+        id="codigoBarras"
+        class="col-12"
+        pInputText
+        placeholder="Codigo de barras etiqueta del producto"
+        formControlName="codigoBarras"
+      />
+      <label for="precio" class="col-12"><h5>Precio de venta:</h5></label>
+      <input
+        type="text"
+        id="precio"
+        class="col-12"
+        pInputText
+        placeholder="Precio de venta del producto"
+        formControlName="precio"
+      />
+      <label for="utilidad" class="col-12"><h5>Utilidad de venta:</h5></label>
+      <input
+        type="text"
+        id="utilidad"
+        class="col-12"
+        pInputText
+        placeholder="Utilidad de venta del producto"
+        formControlName="utilidad"
+      />
+      <label for="categoriaId" class="col-12"><h5>Categoria:</h5></label>
+      <input
+        type="text"
+        id="categoriaId"
+        class="col-12"
+        pInputText
+        placeholder="Categoria del producto"
+        formControlName="categoriaId"
+      />
+      <label for="utilidad" class="col-12"><h5>Imagen:</h5></label>
+      <input
+        type="text"
+        id="imagen"
+        class="col-12"
+        pInputText
+        placeholder="Imagen del producto"
+        formControlName="imagen"
+      />
+    </p-scrollPanel>
+  </div>
+      <div class="col-4 col-offset-8">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-plus"
+          label="Guardar"
+          class="p-button-rounded w-full"
+          (click)="guardar()"
+          *ngIf="producto?.id"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-save"
+          label="Crear"
+          class="p-button-rounded p-button-success"
+          style="min-width: 100%"
+          (click)="crear()"
+          *ngIf="!producto?.id"
+        ></button>
+      </div>
+
+
+
+</div>
+  </form>
+
+
+
+
+<h5>Valid</h5>
+<p>{{form.valid}}</p>
+<h5>Valores</h5>
+<p>{{form.value|json}}</p>

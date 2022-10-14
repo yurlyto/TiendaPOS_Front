@@ -1,9 +1,14 @@
 
+<!-- {{productos|json}} -->
 <div class="grid">
   <div class="col-3">
-    <div class="card card-full-h" >Recibo</div>
+    <div class="card card-full-h" >
+      <app-recibo-productos [venta]="venta" [total]="total"></app-recibo-productos>
+    </div>
   </div>
   <div class="col-9">
-    <div class="card card-full-h">Items</div>
+    <div class="card card-full-h">
+      <app-data-view-productos [productos]="productos" (addItem)="agregar($event)"></app-data-view-productos>
+    </div>
   </div>
 </div>

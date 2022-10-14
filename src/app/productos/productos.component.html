@@ -1,0 +1,37 @@
+productos works
+<p-toast position="top-center"></p-toast>
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-plus"
+      label="Nuevo"
+      class="p-button-rounded p-button-success"
+      (click)="new()"
+    ></button>
+  </div>
+</p-toolbar>
+{{ producto | json }}
+<div class="grid mt-2">
+  <div class="col-3">
+    <div class="card card-full-h">
+      <app-edit-productos
+        [producto]="producto"
+        (crearItem)="crear($event)"
+        (guardarItem)="guardar($event)"
+      ></app-edit-productos>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="card card-full-h">
+      <app-listado-productos
+        [productos]="productos"
+        (editItem)="edit($event)"
+        (deleteItem)="eliminar($event)"
+      ></app-listado-productos>
+    </div>
+  </div>
+</div>
+

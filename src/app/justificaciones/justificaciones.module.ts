@@ -13,11 +13,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 
 
+
 @NgModule({
   declarations: [
     JustificacionesComponent,
     EditJustificacionesComponent,
-    ListadoJustificacionesComponent,
+    ListadoJustificacionesComponent
   ],
   imports: [
     CommonModule,
