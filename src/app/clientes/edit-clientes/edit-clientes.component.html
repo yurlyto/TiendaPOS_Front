@@ -1,0 +1,125 @@
+<p>edit-clientes works! {{ cliente | json }}</p>
+<p-toast position="top-center"></p-toast>
+<h3 *ngIf="cliente?.id">
+  Editar Cliente {{ cliente?.nombres }} {{ cliente?.apellidos }}
+</h3>
+<h3 *ngIf="!cliente?.id">Crear Cliente</h3>
+<form (ngSubmit)="crear()" autocomplete="off" [formGroup]="form">
+  <div class="grid">
+    <div class="col-12">
+      <p-scrollPanel [style]="{ width: '100%', height: '200px' }">
+        <label for="documento" class="col-12"><h5>Documento:</h5></label>
+        <input
+          type="text"
+          id="documento"
+          class="col-12"
+          pInputText
+          placeholder="Número de documento de identidad"
+          formControlName="documento"
+        />
+
+        <label for="nombres" class="col-12"><h5>Nombres:</h5></label>
+        <input
+          type="text"
+          id="nombres"
+          class="col-12"
+          pInputText
+          placeholder="Nombres del cliente"
+          formControlName="nombres"
+        />
+        <label for="apellidos" class="col-12"><h5>Apellidos:</h5></label>
+        <input
+          type="text"
+          id="apellidos"
+          class="col-12"
+          pInputText
+          placeholder="apellidos del cliente"
+          formControlName="apellidos"
+        />
+        <label for="celular" class="col-12"><h5>Celular:</h5></label>
+        <input
+          type="text"
+          id="celular"
+          class="col-12"
+          pInputText
+          placeholder="celular del cliente"
+          formControlName="celular"
+        />
+        <label for="telefono" class="col-12"><h5>Telefono:</h5></label>
+        <input
+          type="text"
+          id="telefono"
+          class="col-12"
+          pInputText
+          placeholder="telefono del cliente"
+          formControlName="telefono"
+        />
+        <label for="email" class="col-12"><h5>Email:</h5></label>
+        <input
+          type="email"
+          id="email"
+          class="col-12"
+          pInputText
+          placeholder="email del cliente"
+          formControlName="email"
+        />
+        <label for="cupo" class="col-12"><h5>Cupo:</h5></label>
+        <input
+          type="text"
+          id="cupo"
+          class="col-12"
+          pInputText
+          placeholder="cupo del cliente"
+          formControlName="cupo"
+        />
+        <label for="saldo" class="col-12"><h5>Saldo:</h5></label>
+        <input
+          type="text"
+          id="saldo"
+          class="col-12"
+          pInputText
+          placeholder="saldo del cliente"
+          formControlName="saldo"
+        />
+        <label for="observaciones" class="col-12"
+          ><h5>Observaciones:</h5></label
+        >
+        <input
+          type="text"
+          id="saldo"
+          class="col-12"
+          pInputText
+          placeholder="observaciones del cliente"
+          formControlName="observaciones"
+        />
+      </p-scrollPanel>
+      <div class="col-4 col-offset-8">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-plus"
+          label="Guardar"
+          class="p-button-rounded w-full"
+          (click)="guardar()"
+          *ngIf="cliente?.id"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-save"
+          label="Crear"
+          class="p-button-rounded p-button-success"
+          style="min-width: 100%"
+          (click)="crear()"
+          *ngIf="!cliente?.id"
+        ></button>
+      </div>
+    </div>
+  </div>
+</form>
+<h5>Valid</h5>
+<p>{{ form.valid }}</p>
+<h5>Valores</h5>
+<p>{{ form.value | json }}</p>

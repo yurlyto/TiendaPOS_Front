@@ -1,0 +1,28 @@
+<p>listado-usuarios works! {{usuarios|json}}</p>
+
+<p-table [value]="usuarios" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Nombres</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Administrador</th>
+          <th>Activo</th>
+          <th>Opciones</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-usuario>
+      <tr>
+          <td>{{usuario.nombres}}</td>
+          <td>{{usuario.email}}</td>
+          <td>{{usuario.password}}</td>
+          <td>{{usuario.administrador}}</td>
+          <td>{{usuario.activo}}</td>
+          <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(usuario)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="eliminar(usuario)"></button>
+          </td>
+        </tr>
+  </ng-template>
+
+</p-table>

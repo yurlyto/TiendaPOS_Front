@@ -48,7 +48,7 @@ export class IndexComponent implements OnInit {
         cierreId: this.cierre
       }
 
-      this.venta.detalleVenta.push(detalleVenta)
+      this.venta.detalleVenta.unshift(detalleVenta)
     }
     if (this.venta.formaPago.credito){
       detalleVenta.saldo=detalleVenta.valor;

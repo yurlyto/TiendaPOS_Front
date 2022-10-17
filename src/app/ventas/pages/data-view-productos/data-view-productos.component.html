@@ -1,6 +1,6 @@
-<p>data-view-productos works! {{productos|json}}</p>
+<!-- <p>data-view-productos works! {{productos|json}}</p> -->
 <div class="grid">
-<p-dataView #dv [value]="productos" [paginator]="true" [rows]="9" filterBy="descripcion"
+<p-dataView #dv [value]="productos" [paginator]="true" [rows]="8" filterBy="descripcion"
         layout="grid">
   <ng-template pTemplate="header">
       <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
@@ -12,11 +12,12 @@
           <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
       </div>
   </ng-template>
+
   <ng-template let-producto pTemplate="listItem">
       <div class="col-12">
           <div class="product-list-item">
               <!-- <img [src]="'assets/showcase/images/demo/product/' + producto.imagen" [alt]="producto.descripcion"/> -->
-              <img [src]="'https://i0.wp.com/www.licoresmedellin.com/wp-content/uploads/2021/08/Aguardiente-antioqueno-roja-750ml.jpg'" [alt]="producto.descripcion"/>
+              <img [src]="'/assets/vinos.jpg'" [alt]="producto.descripcion"/>
               <div class="product-list-detail">
                   <div class="product-name">{{producto.descripcion}}</div>
                   <div class="product-description">{{producto.codigoBarras}}</div>
@@ -32,7 +33,7 @@
       </div>
   </ng-template>
   <ng-template let-producto pTemplate="gridItem">
-      <div class="col-2 ">
+      <div class="col-2 " >
           <div class="product-grid-item card">
               <div class="product-grid-item-top">
                   <div>
@@ -45,7 +46,7 @@
               </div>
               <div class="product-grid-item-content">
                   <!-- <img [src]="'assets/showcase/images/demo/product/' + producto.imagen" [alt]="producto.descripcion"/> -->
-                  <img [src]="'https://i0.wp.com/www.licoresmedellin.com/wp-content/uploads/2021/08/Aguardiente-antioqueno-roja-750ml.jpg'" [alt]="producto.descripcion" />
+                  <img [src]="'/assets/vinos.jpg'" [alt]="producto.descripcion" />
                   <div class="product-name">{{producto.descripcion}}</div>
                   <div class="product-description">{{producto.codigoBarras}}</div>
                   <!-- <p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating> -->
@@ -55,6 +56,7 @@
                   <p-button icon="pi pi-shopping-cart" [disabled]="producto.cantidad === 0" (click)="agregar(producto)"></p-button>
               </div>
           </div>
+
       </div>
   </ng-template>
 </p-dataView>

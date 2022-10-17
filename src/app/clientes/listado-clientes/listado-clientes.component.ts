@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cliente } from '../interfaces/cliente';
 
 @Component({
@@ -8,9 +8,19 @@ import { Cliente } from '../interfaces/cliente';
 })
 export class ListadoClientesComponent implements OnInit {
   @Input() clientes:Cliente[]=[];
+  @Output() editItem = new EventEmitter<Cliente>();
+  @Output() eliminarItem = new EventEmitter<Cliente>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+  edit(cliente: Cliente) {
+    this.editItem.emit(cliente);
+    console.log(cliente);
+  }
+  eliminar(cliente:Cliente){
+    this.eliminarItem.emit(cliente);
+    console.log(cliente);
   }
 
 }

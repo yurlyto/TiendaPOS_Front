@@ -12,6 +12,7 @@ import { LayoutComponent } from './layout/layout.component';
             { path: 'formapagos',component: LayoutComponent, loadChildren: () => import('./formapagos/formapagos.module').then(m => m.FormapagosModule) },
             { path: 'productos',component: LayoutComponent, loadChildren: () => import('./productos/productos.module').then(m => m.ProductosModule) },
             { path: 'clientes',component: LayoutComponent, loadChildren: () => import('./clientes/clientes.module').then(m => m.ClientesModule) },
+            { path: 'usuarios',component: LayoutComponent, loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule) },
         ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule]

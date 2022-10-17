@@ -14,14 +14,14 @@
   <ng-template pTemplate="body" let-cliente>
       <tr>
           <td>{{cliente.id}}</td>
-          <td>{{cliente.nombres}} {{cliente.Apellidos}}</td>
+          <td>{{cliente.nombres}} {{cliente.apellidos}}</td>
           <td>{{cliente.celular}}</td>
           <td>{{cliente.email}}</td>
           <td>{{cliente.cupo}}</td>
           <td>{{cliente.saldo}}</td>
           <td style="text-align: right;">
-            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" ></button>
-            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" ></button>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(cliente)"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="eliminar(cliente)"  ></button>
         </td>
       </tr>
   </ng-template>

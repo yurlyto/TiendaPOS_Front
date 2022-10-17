@@ -1,5 +1,5 @@
-<!-- <p>{{clientes|json}}</p> -->
-<p-toast position="top-center"></p-toast>
+<p>usuarios works! {{usuario|json}}</p>
+<!-- <p-toast position="top-center"></p-toast> -->
 <p-toolbar>
   <div class="p-toolbar-group-left">
     <button
@@ -16,12 +16,14 @@
 <div class="grid mt-2">
   <div class="col-3">
     <div class="card card-full-h">
-      <app-edit-clientes [cliente]="cliente" (crearItem)="crear($event)" (guardarItem)="guardar($event)"></app-edit-clientes>
+    <app-edit-usuarios [usuario]="usuario"></app-edit-usuarios>
+      <!-- <app-edit-clientes [cliente]="cliente" (crearItem)="crear($event)" (guardarItem)="guardar($event)"></app-edit-clientes> -->
     </div>
   </div>
   <div class="col-9">
     <div class="card card-full-h">
-      <app-listado-clientes [clientes]="clientes" (editItem)="editar($event)" (eliminarItem)="eliminar($event)"></app-listado-clientes>
+
+       <app-listado-usuarios [usuarios]="usuarios" (editItem)="editar($event)" (eliminarItem)="eliminar($event)"></app-listado-usuarios> -->
     </div>
   </div>
 </div>

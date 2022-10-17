@@ -3,9 +3,13 @@
       width: 14rem;
       font-weight: normal;
   }
-
+  .p-dataview .p-dataview-content{
+    height: 350px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
   .product-name {
-      font-size: 1.5rem;
+      font-size: 1.0rem;
       font-weight: 700;
   }
 
@@ -93,13 +97,13 @@
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   margin-bottom: 2rem;
+  height: 200px;
 }
 
 @media screen and (max-width: 576px) {
 :host ::ng-deep .product-list-item {
   flex-direction: column;
   align-items: center;
-
   img {
     width: 75%;
     margin: 2rem 0;
@@ -125,5 +129,6 @@
     align-items: center;
     width: 100%;
   }
+
 }
 }

@@ -8,7 +8,8 @@ import { ButtonModule } from 'primeng/button';
 import { ReciboProductosComponent } from './pages/recibo-productos/recibo-productos.component';
 import {TableModule} from 'primeng/table';
 import {BadgeModule} from 'primeng/badge';
-
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import {BadgeModule} from 'primeng/badge';
     DataViewModule,
     ButtonModule,
     TableModule,
-    BadgeModule
+    BadgeModule,
+    InputTextModule,
+    FormsModule
   ]
 })
 export class VentasModule { }
