@@ -1,0 +1,11 @@
+<p-toast position="top-center"></p-toast>
+<div class="p-fluid">
+  <div class="p-field p-grid">
+    <form autocomplete="off" [formGroup]="form">
+      <label for="codBar" class="col-12 mb-2 p-md-2 mb-md-0"><i class="pi pi-search-plus mr-2"></i> Codigo de Barras</label>
+      <div class="col-12 md-10">
+         <input id="codBar" type="text" pInputText (keydown.enter)="buscar()"  formControlName="codBar">
+      </div>
+    </form>
+  </div>
+</div>

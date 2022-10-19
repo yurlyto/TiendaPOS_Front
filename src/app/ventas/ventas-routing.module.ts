@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { IndexComponent } from './pages/index/index.component';
+import { IndexComponent } from './index/index.component';
+
 
 
 @NgModule({

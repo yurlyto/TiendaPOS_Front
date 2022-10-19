@@ -8,7 +8,7 @@ export interface Venta {
   clienteId:   number;
   cliente?:     Cliente;
   formapagoId: number;
-  formaPago:   Formapago;
-  detalleVenta: DetalleVenta[]
+  formaPago?:   Formapago;
+  detallesVentas: DetalleVenta[]
 }
 

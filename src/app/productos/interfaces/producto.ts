@@ -8,6 +8,6 @@ export interface Producto {
   cantidad:     number;
   utilidad:     number;
   categoriaId:  number;
-  categoria:    Categoria;
+  categoria?:    Categoria;
   imagen:       string;
 }

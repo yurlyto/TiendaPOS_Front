@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Producto } from 'src/app/productos/interfaces/producto';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-data-view-productos',
@@ -7,6 +8,7 @@ import { Producto } from 'src/app/productos/interfaces/producto';
   styleUrls: ['./data-view-productos.component.scss']
 })
 export class DataViewProductosComponent implements OnInit {
+  urlImagenes:string=environment.url+"/producto/imagen/";
   @Input() productos: Producto[]=[];
   @Output() addItem = new EventEmitter<Producto>();
 

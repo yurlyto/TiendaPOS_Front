@@ -1,18 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { Usuario } from './interfaces/usuario';
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  styleUrls: ['./usuarios.component.css'],
+  providers: [MessageService]
 })
 export class UsuariosComponent implements OnInit {
   usuarios: Usuario[]=[];
-  usuario: Usuario | undefined;
 
+  usuario: Usuario ={
+    "id": 0,
+    "email": "",
+    "password": "",
+    "nombres": "",
+    "administrador": false,
+    "activo": true
+  };
 
+  constructor(
+    private messageService:MessageService
+  ) { }
 
-  constructor() { }
+  guardar($event: Usuario) {
+    throw new Error('Method not implemented.');
+  }
+  crear($event: Usuario) {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
     this.refrescar();
@@ -35,13 +52,21 @@ export class UsuariosComponent implements OnInit {
       "activo": true
     }]
    }
-      nuevo(){
+    nuevo(){
+      this.usuario= {
+        "id": 0,
+        "email": "",
+        "password": "",
+        "nombres": "",
+        "administrador": false,
+        "activo": true
+      }
 
-      }
-      editar(usuario:Usuario){
-        this.usuario=usuario
-      }
-      eliminar(usuario:Usuario){
+    }
+    editar(usuario:Usuario){
+      this.usuario=usuario
+    }
+    eliminar(usuario:Usuario){
 
-      }
+    }
 }

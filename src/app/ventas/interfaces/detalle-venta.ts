@@ -6,7 +6,7 @@ export interface DetalleVenta {
   fecha:      Date;
   ventaId:    number;
   productoId: number;
-  producto:   Producto;
+  producto?:   Producto;
   cantidad:   number;
   valor:      number;
   saldo:      number;

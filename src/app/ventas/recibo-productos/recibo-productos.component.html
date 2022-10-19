@@ -1,7 +1,7 @@
 <!-- <p>recibo-productos works! {{venta|json}}</p> -->
 <h3 *ngIf="!venta?.cliente?.id">Cliente de mostrador</h3>
 <h3 *ngIf="!venta?.cliente?.id">{{venta.cliente?.documento}} {{venta.cliente?.nombres}} {{venta.cliente?.apellidos}}</h3>
-<p-table [value]="venta.detalleVenta" responsiveLayout="scroll" [scrollable]="true" scrollHeight="300px" >
+<p-table [value]="venta.detallesVentas" responsiveLayout="scroll" [scrollable]="true" scrollHeight="300px" >
   <ng-template pTemplate="header">
       <tr>
           <th>Producto/Cantidad</th>
@@ -11,16 +11,14 @@
   <ng-template pTemplate="body" let-detalle style="height:480px;">
       <tr>
           <td>{{detalle.producto.descripcion}} x {{detalle.cantidad}}</td>
-          <td style="text-align: right;">{{detalle.valor | currency: '$':true:'0.0' }}</td>
+          <td style="text-align: right !important;">${{detalle.valor | number: '0.0'  }}</td>
       </tr>
   </ng-template>
   <ng-template pTemplate="footer">
     <tr>
       <td>Total Compra:</td>
-      <td style="text-align:right;">{{total | currency: '$':true:'0.0' }}</td>
+      <td  style="text-align: right !important;">${{total | number: '0.0' }}</td>
     </tr>
 </ng-template>
 </p-table>
-<input type="text" [(ngModel)]="codBar" pInputText class="mt-2" >
-<button pButton label="Vender"></button>
 

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Producto } from 'src/app/productos/interfaces/producto';
-import { Venta } from '../../interfaces/venta';
+
 import {NgForm} from '@angular/forms';
+import { Venta } from '../interfaces/venta';
 
 @Component({
   selector: 'app-recibo-productos',

@@ -9,6 +9,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { EditUsuariosComponent } from './edit-usuarios/edit-usuarios.component';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +29,9 @@ import { EditUsuariosComponent } from './edit-usuarios/edit-usuarios.component';
     ToastModule,
     ToolbarModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    ScrollPanelModule,
+    ReactiveFormsModule
   ]
 })
 export class UsuariosModule { }
