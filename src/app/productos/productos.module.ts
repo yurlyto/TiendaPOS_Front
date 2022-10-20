@@ -12,6 +12,10 @@ import { TableModule } from 'primeng/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { EditProductosComponent } from './edit-productos/edit-productos.component';
+import {DropdownModule} from 'primeng/dropdown';
+import {AvatarModule} from 'primeng/avatar';
+import {ImageModule} from 'primeng/image';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { EditProductosComponent } from './edit-productos/edit-productos.componen
     TableModule,
     ReactiveFormsModule,
     ToastModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    DropdownModule,
+    AvatarModule,
+    ImageModule,
+    FileUploadModule
   ]
 })
 export class ProductosModule { }

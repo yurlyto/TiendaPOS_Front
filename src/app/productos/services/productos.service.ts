@@ -28,4 +28,8 @@ export class ProductosService {
   eliminar(producto:Producto):Observable<Producto>{
     return this.http.delete<Producto>(`${ this.url }/justificacione/${ producto.id }`);
   }
+  imagen(imagen:FormData):Observable<void>{
+    let id=imagen.get('id');
+    return this.http.put<void>(`${ this.url }/producto/imagen/${ id }`,imagen);
+  }
 }

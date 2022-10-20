@@ -15,10 +15,11 @@
 <div class="grid mt-2">
   <div class="col-3">
     <div class="card card-full-h">
-      <app-edit-productos
+      <app-edit-productos *ngIf="!upload"
         [producto]="producto"
         (crearItem)="crear($event)"
         (guardarItem)="guardar($event)"
+        (imagenItem)="cambiarImagen($event)"
       ></app-edit-productos>
     </div>
   </div>
@@ -26,6 +27,7 @@
     <div class="card card-full-h">
       <app-listado-productos
         [productos]="productos"
+        [categorias]="categorias"
         (editItem)="edit($event)"
         (deleteItem)="eliminar($event)"
       ></app-listado-productos>

@@ -14,6 +14,7 @@ import { CodigoBarrasComponent } from './codigo-barras/codigo-barras.component';
 import { IndexComponent } from './index/index.component';
 import { ReciboProductosComponent } from './recibo-productos/recibo-productos.component';
 import { Toast, ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { Toast, ToastModule } from 'primeng/toast';
     BadgeModule,
     InputTextModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
+    DropdownModule
   ]
 })
 export class VentasModule { }

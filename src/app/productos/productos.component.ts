@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { CategoriasComponent } from '../categorias/categorias.component';
+import { Categoria } from '../categorias/interfaces/categoria';
+import { CategoriasService } from '../categorias/services/categorias.service';
 import { Producto } from './interfaces/producto';
 import { ProductosService } from './services/productos.service';
 
@@ -10,6 +13,7 @@ import { ProductosService } from './services/productos.service';
   providers: [MessageService]
 })
 export class ProductosComponent implements OnInit {
+  upload:boolean=false;
   producto:Producto={
     id: 0,
     descripcion: "",
@@ -25,8 +29,10 @@ export class ProductosComponent implements OnInit {
     imagen: ""
   }
   productos: Producto[]=[];
+  categorias:Categoria[]=[];
   constructor(
     private productosService:ProductosService,
+    private categoriasService:CategoriasService,
     private messageService:MessageService
   ) { }
 
@@ -51,7 +57,6 @@ export class ProductosComponent implements OnInit {
   }
   edit(producto:Producto){
     this.producto=producto;
-    console.log(producto)
   }
   crear(producto:Producto){
     this.productosService.crear(producto).subscribe((resp) => {
@@ -93,6 +98,19 @@ export class ProductosComponent implements OnInit {
     this.productosService.getAll().subscribe((resp) => {
       this.productos = resp;
     });
+    this.categoriasService.getAll().subscribe((resp) => {
+      this.categorias = resp;
+    });
+  }
+  cambiarImagen(imagen:FormData){
+    console.log(imagen.get('imagen'));
+    this.upload=true;
+    this.productosService.imagen(imagen).subscribe((resp) => {
+
+      this.refrescar();
+      this.upload=false;
+    });
+
   }
 
 
