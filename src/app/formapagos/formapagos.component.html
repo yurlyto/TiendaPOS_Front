@@ -1,4 +1,4 @@
-<!-- <p-toast position="top-center"></p-toast> -->
+<p-toast position="top-center"></p-toast>
 <p-toolbar>
   <div class="p-toolbar-group-left">
     <button
@@ -8,16 +8,14 @@
       icon="pi pi-plus"
       label="Nuevo"
       class="p-button-rounded p-button-success"
-      (click)="new()"
+      (click)="nuevo()"
     ></button>
   </div>
 </p-toolbar>
-{{ formapagos | json }}
-<!-- {{ justificacion | json }} -->
 
 <div class="col-9">
   <div class="card card-full-h">
-    <app-listado-formapagos [formapagos]="formapagos"></app-listado-formapagos>
+    <app-listado-formapagos [formapagos]="formapagos" (editItem)="editar($event)" (eliminarItem)="eliminar($event)"></app-listado-formapagos>
   </div>
 </div>
 

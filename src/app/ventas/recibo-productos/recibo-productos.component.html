@@ -1,7 +1,6 @@
-<!-- <p>recibo-productos works! {{venta|json}}</p> -->
-<h3 *ngIf="!venta?.cliente?.id">Cliente de mostrador</h3>
+
 <h3 *ngIf="!venta?.cliente?.id">{{venta.cliente?.documento}} {{venta.cliente?.nombres}} {{venta.cliente?.apellidos}}</h3>
-<p-table [value]="venta.detallesVentas" responsiveLayout="scroll" [scrollable]="true" scrollHeight="300px" >
+<p-table [value]="venta.detallesVentas" responsiveLayout="scroll" [scrollable]="true" scrollHeight="250px" >
   <ng-template pTemplate="header">
       <tr>
           <th>Producto/Cantidad</th>

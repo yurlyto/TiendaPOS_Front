@@ -9,4 +9,5 @@ export interface Cliente {
   cupo:          number;
   saldo:         number;
   observaciones: string;
+  nombrecompleto?:string;
 }

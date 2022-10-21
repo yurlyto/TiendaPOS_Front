@@ -16,5 +16,17 @@ export class FormapagosService {
   getAll():Observable <Formapago[]> {
     return this.http.get<Formapago[]>(`${ this.url }/formapago`);
   }
+  get(id: string):Observable<Formapago>{
+    return this.http.get<Formapago>(`${ this.url }/formapago${id}`);
+  }
+  crear(formapago:Formapago):Observable<Formapago>{
+     return this.http.post<Formapago>(`${ this.url }/formapago`,formapago);
+  }
+  guardar(formapago:Formapago):Observable<Formapago>{
+    return this.http.put<Formapago>(`${ this.url }/formapago/${ formapago.id }`,formapago);
+  }
+  eliminar(formapago:Formapago):Observable<Formapago>{
+    return this.http.delete<Formapago>(`${ this.url }/formapago/${ formapago.id }`);
+  }
 
 }

@@ -1,5 +1,4 @@
 <p-toast position="top-center"></p-toast>
-<p>edit-categoriaes works! {{ categoria | json }}</p>
 <h3 *ngIf="categoria?.id">Editar categoria {{categoria?.descripcion}}</h3>
 <h3 *ngIf="!categoria?.id">Crear categoria</h3>
 <form (ngSubmit)="crear()" autocomplete="off" [formGroup]="form">
@@ -39,8 +38,4 @@
     </div>
   </div>
 </form>
-<h5>Valid</h5>
-<p>{{form.valid}}</p>
-<h5>Valores</h5>
-<p>{{form.value|json}}</p>
 

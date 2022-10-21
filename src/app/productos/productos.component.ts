@@ -10,91 +10,88 @@ import { ProductosService } from './services/productos.service';
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css'],
-  providers: [MessageService]
+  providers: [MessageService],
 })
 export class ProductosComponent implements OnInit {
-  upload:boolean=false;
-  producto:Producto={
+  upload: boolean = false;
+  producto: Producto = {
     id: 0,
-    descripcion: "",
-    codigoBarras: "",
+    descripcion: '',
+    codigoBarras: '',
     precio: 0,
     utilidad: 0,
-    cantidad:0,
+    cantidad: 0,
     categoriaId: 0,
     categoria: {
       id: 0,
-      descripcion: ""
+      descripcion: '',
     },
-    imagen: ""
-  }
-  productos: Producto[]=[];
-  categorias:Categoria[]=[];
+    imagen: '',
+  };
+  productos: Producto[] = [];
+  categorias: Categoria[] = [];
   constructor(
-    private productosService:ProductosService,
-    private categoriasService:CategoriasService,
-    private messageService:MessageService
-  ) { }
+    private productosService: ProductosService,
+    private categoriasService: CategoriasService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.refrescar();
   }
-  new(){
-    this.producto={
+  new() {
+    this.producto = {
       id: 0,
-      descripcion: "",
-      codigoBarras: "",
+      descripcion: '',
+      codigoBarras: '',
       precio: 0,
-      cantidad:0,
+      cantidad: 0,
       utilidad: 0,
       categoriaId: 0,
       categoria: {
         id: 0,
-        descripcion: ""
+        descripcion: '',
       },
-      imagen: ""
-    }
+      imagen: '',
+    };
   }
-  edit(producto:Producto){
-    this.producto=producto;
+  edit(producto: Producto) {
+    this.producto = producto;
   }
-  crear(producto:Producto){
+  crear(producto: Producto) {
     this.productosService.crear(producto).subscribe((resp) => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Creacion Producto',
-          detail:
-            `Se ha creado el producto ${producto.descripcion} exitosamente!!!`,
-        });
-        this.refrescar();
-        this.new();
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Creacion Producto',
+        detail: `Se ha creado el producto ${producto.descripcion} exitosamente!!!`,
+      });
+      this.refrescar();
+      this.new();
     });
   }
-  guardar(producto:Producto){
+  guardar(producto: Producto) {
     this.productosService.guardar(producto).subscribe((resp) => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Edición Producto',
-          detail:
-            `Se ha guardado el producto ${producto.descripcion} exitosamente!!!`,
-        });
-        this.producto=producto;
-        this.refrescar();
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Edición Producto',
+        detail: `Se ha guardado el producto ${producto.descripcion} exitosamente!!!`,
+      });
+      this.producto = producto;
+      this.refrescar();
     });
   }
-  eliminar(producto:Producto){
+  eliminar(producto: Producto) {
     this.productosService.eliminar(producto).subscribe((resp) => {
       this.messageService.add({
         severity: 'error',
         summary: 'Eliminación Producto',
-        detail:
-          `Se ha eliminado el producto ${producto.descripcion} exitosamente!!!`,
+        detail: `Se ha eliminado el producto ${producto.descripcion} exitosamente!!!`,
       });
       this.refrescar();
       this.new();
-  });
+    });
   }
-  refrescar(){
+  refrescar() {
     this.productosService.getAll().subscribe((resp) => {
       this.productos = resp;
     });
@@ -102,16 +99,15 @@ export class ProductosComponent implements OnInit {
       this.categorias = resp;
     });
   }
-  cambiarImagen(imagen:FormData){
-    console.log(imagen.get('imagen'));
-    this.upload=true;
+  cambiarImagen(imagen: FormData) {
+    this.upload = true;
     this.productosService.imagen(imagen).subscribe((resp) => {
-
+      this.productosService.get(this.producto.id.toString())
+        .subscribe((producto) => {
+          this.producto = producto;
+        });
       this.refrescar();
-      this.upload=false;
+      this.upload = false;
     });
-
   }
-
-
 }

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { Formapago } from './interfaces/formapago';
 import { FormapagosService } from './services/formapagos.service';
 
 @Component({
   selector: 'app-formapagos',
   templateUrl: './formapagos.component.html',
-  styleUrls: ['./formapagos.component.css']
+  styleUrls: ['./formapagos.component.css'],
+  providers:[MessageService]
 })
 export class FormapagosComponent implements OnInit {
   formapagos: Formapago[]=[];
@@ -15,12 +17,13 @@ export class FormapagosComponent implements OnInit {
     credito: false
   }
 
-  constructor(private formapagosService:FormapagosService) { }
+  constructor(private formapagosService:FormapagosService,
+    private messageService:MessageService) { }
 
   ngOnInit(): void {
     this.refrescar();
   }
-  new(){
+  nuevo(){
     console.log("crear forma de pago")
   }
   refrescar(){
@@ -28,5 +31,21 @@ export class FormapagosComponent implements OnInit {
       this.formapagos = resp;
     });
   }
+  editar(formapago:Formapago){
+    console.log(formapago)
+    this.formapago=formapago;
+  }
+  eliminar(formapago:Formapago){
+    this.formapagosService.eliminar(formapago).subscribe((resp) => {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Eliminación Cliente',
+        detail:
+          `Se ha eliminado la forma de pago ${formapago.descripcion} exitosamente!!!`,
+      });
+      this.refrescar();
+      this.nuevo();
+    });
 
+  }
 }

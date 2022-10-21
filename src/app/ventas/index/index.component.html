@@ -1,8 +1,33 @@
-<!-- {{venta|json}} -->
 <p-toast position="top-center"></p-toast>
 <div class="grid">
   <div class="col-3">
     <div class="card card-full-h" >
+      <form autocomplete="off" [formGroup]="form">
+        <label for="formade" class="col-6"><h5>Forma de Pago: </h5></label>
+        <p-dropdown
+          class="col-12"
+          autoWidth="false"
+          [style]="{ width: '100%' }"
+          placeholder="Forma de Pago"
+          [options]="formaPagos"
+          formControlName="formapago"
+          (onChange)="cambioFormapago()"
+          optionLabel="descripcion"
+        ></p-dropdown>
+        <label for="formade" class="col-6" *ngIf="form.controls['formapago'].value.credito==true">
+          <h5>Cliente:</h5>
+        </label>
+        <p-dropdown *ngIf="form.controls['formapago'].value.credito==true"
+          class="col-12"
+          autoWidth="false"
+          [style]="{ width: '100%' }"
+          placeholder="Seleccione Cliente"
+          [options]="clientes"
+          formControlName="cliente"
+          (onChange)="cambioCliente()"
+          optionLabel="nombrecompleto"
+        ></p-dropdown>
+      </form>
       <app-recibo-productos [venta]="venta" [total]="total"></app-recibo-productos>
       <app-codigo-barras [productos]="productos" (addItem)="agregar($event)"></app-codigo-barras>
 
@@ -11,6 +36,7 @@
   </div>
   <div class="col-9">
     <div class="card card-full-h">
+
       <app-data-view-productos [productos]="productos" (addItem)="agregar($event)"></app-data-view-productos>
     </div>
   </div>

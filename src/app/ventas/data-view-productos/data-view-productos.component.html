@@ -60,7 +60,7 @@
         <div class="product-grid-item card">
           <div class="product-grid-item-top">
             <div>
-              <p-badge [value]="producto.cantidad" class="mr-2"></p-badge>
+              <p-badge value="{{producto.cantidad| number: '0.0'}}" class="mr-2"></p-badge>
               <i class="pi pi-tag product-category-icon"></i>
               <span class="product-category">{{
                 producto.categoria.descripcion
@@ -68,10 +68,11 @@
             </div>
           </div>
           <div class="product-grid-item-content">
-            <img
+            <img *ngIf="producto?.imagen"
               [src]="urlImagenes + producto.id"
               [alt]="producto.descripcion"
             />
+            <i class="pi pi-camera " style="font-size: 6rem; height: 112px;" *ngIf="!producto?.imagen"></i>
             <div class="product-name mt-4">{{ producto.descripcion }}</div>
             <div class="product-description">{{ producto.codigoBarras }}</div>
           </div>

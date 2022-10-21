@@ -9,13 +9,13 @@
     <h5>{{ producto?.descripcion }}</h5>
   </div>
   <div class="col-5 ml-2 text-center" *ngIf="producto?.id">
-    <p-image
-      class=""
+    <p-image *ngIf="producto?.imagen"
       [src]="urlImagenes + producto?.id"
       alt="Image"
       width="60px"
     ></p-image>
-    <p-fileUpload *ngIf="producto" #fubauto mode="basic" name="imagen[]" [customUpload]="true" (uploadHandler)="actualizarImagen( producto.id,$event)" accept="image/*"  [auto]="true" chooseLabel="Cambiar" ></p-fileUpload>
+    <i class="pi pi-camera " style="font-size: 6rem" *ngIf="!producto?.imagen"></i>
+    <p-fileUpload chooseIcon="pi pi-image" *ngIf="producto" #fubauto mode="basic" name="imagen[]" [customUpload]="true" (uploadHandler)="actualizarImagen( producto.id,$event)" accept="image/*"  [auto]="true" chooseLabel="Cambiar" ></p-fileUpload>
   </div>
 </div>
 <form (ngSubmit)="crear()" autocomplete="off" [formGroup]="form">

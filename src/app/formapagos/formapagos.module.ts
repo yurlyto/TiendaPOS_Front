@@ -8,6 +8,7 @@ import { ListadoFormapagosComponent } from './listado-formapagos/listado-formapa
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TableModule } from 'primeng/table';
     ToolbarModule,
     ButtonModule,
     TableModule,
+    ToastModule
   ]
 })
 export class FormapagosModule { }
