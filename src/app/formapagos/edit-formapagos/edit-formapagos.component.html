@@ -1,1 +1,41 @@
-<p>edit-formapagos works!</p>
+<p-toast position="top-center"></p-toast>
+<h3 *ngIf="formapago?.id">Editar Forma de pago {{ formapago?.descripcion }}</h3>
+<h3 *ngIf="!formapago?.id">Crear Forma de pago</h3>
+<form autocomplete="off" [formGroup]="form">
+    <label for="descripcion" class="col-12"><h5>Descripción:</h5></label>
+    <input
+      type="text"
+      id="descripcion"
+      class="col-12"
+      pInputText
+      placeholder="Descripción de la forma de pago"
+      formControlName="descripcion"
+    />
+    <label for="descripcion" class="col-12"><h5>A Crédito:</h5></label>
+    <p-inputSwitch formControlName="credito"></p-inputSwitch>
+
+    <div class="col-4 col-offset-8">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-plus"
+        label="Guardar"
+        class="p-button-rounded w-full"
+        (click)="guardar()"
+        *ngIf="formapago?.id"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-save"
+        label="Crear"
+        class="p-button-rounded p-button-success"
+        style="min-width: 100%"
+        (click)="crear()"
+        *ngIf="!formapago?.id"
+      ></button>
+    </div>
+</form>
+

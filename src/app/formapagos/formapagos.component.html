@@ -12,10 +12,19 @@
     ></button>
   </div>
 </p-toolbar>
-
-<div class="col-9">
-  <div class="card card-full-h">
-    <app-listado-formapagos [formapagos]="formapagos" (editItem)="editar($event)" (eliminarItem)="eliminar($event)"></app-listado-formapagos>
+<div class="grid mt-2">
+  <div class="col-3">
+    <div class="card card-full-h">
+       <app-edit-formapagos [formapago]="formapago" (crearItem)="crear($event)" (guardarItem)="guardar($event)"></app-edit-formapagos>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="card card-full-h">
+      <app-listado-formapagos
+        [formapagos]="formapagos"
+        (editItem)="editar($event)"
+        (eliminarItem)="eliminar($event)"
+      ></app-listado-formapagos>
+    </div>
   </div>
 </div>
-

@@ -9,6 +9,9 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { ToastModule } from 'primeng/toast';
     ToolbarModule,
     ButtonModule,
     TableModule,
-    ToastModule
+    ToastModule,
+    ReactiveFormsModule,
+    InputSwitchModule
   ]
 })
 export class FormapagosModule { }

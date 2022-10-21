@@ -42,7 +42,7 @@ export class EditClientesComponent implements OnInit {
         severity: 'warn',
         summary: 'Creacion Cliente',
         detail:
-          'Error al crear la cliente verifique los campos e intente de nuevo',
+          'Error al crear el cliente verifique los campos e intente de nuevo',
       });
       return;
     }
@@ -56,7 +56,7 @@ export class EditClientesComponent implements OnInit {
         severity: 'warn',
         summary: 'Creacion Cliente',
         detail:
-          'Error al crear la cliente verifique los campos e intente de nuevo',
+          'Error al crear el cliente verifique los campos e intente de nuevo',
       });
       return;
     }
